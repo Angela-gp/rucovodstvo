@@ -1,0 +1,295 @@
+
+    :root {
+      --bg-page: #f9faf9;
+      --bg-card: #ffffff;
+      --bg-card-accent: #f3f4f3;
+      --text-main: #1a1a1a;
+      --text-dim: #4a4a4a;
+      --border-card: rgba(0,0,0,0.08);
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --shadow-card: 0 20px 40px rgba(0,0,0,0.05);
+      --gradient-soft: radial-gradient(circle at 70% 10%, rgba(0,255,170,0.08) 0%, rgba(0,0,0,0) 60%);
+      --accent-bullet: #1a1a1a;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-page);
+      background-image: var(--gradient-soft);
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .layout {
+      max-width: 1400px;
+      padding: 2rem clamp(1rem, 2vw, 2rem) 4rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      column-gap: 2rem;
+    }
+
+    /* Левое боковое меню (оглавление документа) */
+    aside {
+      border-right: 1px solid rgba(0,0,0,0.08);
+      padding-right: 1.5rem;
+      position: sticky;
+      top: 1rem;
+      height: max-content;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      background: radial-gradient(circle at 30% 30%, #fff 0%, #d9fff2 40%, #00c48c 100%);
+      border: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      display: grid;
+      place-items: center;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #000;
+    }
+
+    nav {
+      font-size: 0.9rem;
+    }
+
+    nav .section-title {
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-dim);
+      margin: 1.5rem 0 .5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      row-gap: .4rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      background: rgba(0,0,0,0);
+      padding: .5rem .75rem;
+      display: block;
+      border-radius: var(--radius-md);
+      line-height: 1.3;
+      border: 1px solid transparent;
+      font-weight: 500;
+    }
+    nav a:hover{
+      background: var(--bg-card);
+      border-color: rgba(0,0,0,0.07);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+    }
+
+    /* Контент справа */
+    main {
+      display: grid;
+      row-gap: 4rem;
+      max-width: 900px;
+    }
+
+    section {
+      scroll-margin-top: 2rem;
+    }
+
+    /* Заголовки секций */
+    h1, h2, h3 {
+      font-family: inherit;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 1vw + 1.8rem, 2.4rem);
+      font-weight: 700;
+      margin-bottom: .75rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--text-dim);
+      max-width: 50ch;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: .5rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: .25rem;
+    }
+
+    p {
+      color: var(--text-main);
+      font-size: 1rem;
+      max-width: 75ch;
+      margin: 0 0 1rem;
+    }
+
+    .dimmed {
+      color: var(--text-dim);
+    }
+
+    /* Колонки/гриды как в модуле */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
+      gap: 1rem 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      min-height: 84px;
+      overflow: hidden;
+    }
+
+    .card-icon {
+      background: var(--bg-card-accent);
+      border-right: 1px solid var(--border-card);
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+    }
+
+    .card-body {
+      padding: .9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .bullet-title {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: .4rem;
+      line-height: 1.3;
+    }
+
+    .bullet-desc {
+      font-size: .85rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 800px){
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      aside{
+        position: relative;
+        border-right: 0;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tech-list {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1rem 1.25rem;
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    .tech-list dt {
+      font-weight: 600;
+      color: var(--text-main);
+      margin-top: .75rem;
+      font-size: .9rem;
+    }
+
+    .tech-list dd {
+      margin: .25rem 0 .5rem 0;
+      padding-left: 1rem;
+      color: var(--text-dim);
+      font-size: .9rem;
+    }
+
+    footer {
+      font-size: .8rem;
+      color: var(--text-dim);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin-top: 4rem;
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+    }
+
+.media-block {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screenshot {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 56.25%; /* соотношение 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
